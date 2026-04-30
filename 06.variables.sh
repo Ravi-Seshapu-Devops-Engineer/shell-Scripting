@@ -7,6 +7,6 @@ echo "Script name $0"
 echo "Who is running the script $USER"
 echo "Home directory of the curent user $HOME"
 echo "PID odf the script $$"
-sleep 100
+sleep 100 &
 echo "PID of the recently executed background process $!"
 echo "all arguments passed to the script $*"
