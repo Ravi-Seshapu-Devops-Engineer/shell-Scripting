@@ -8,11 +8,11 @@ if [ $USERID -ne 0 ]; then
 fi
 
 echo "installing nginx"
-dnf install nginx -y
+dnf remove nginx -y
 
 if [ $? -ne 0 ]; then
   echo "installation failed"
   exit 1
 else
-  echo "installation is success"
+  echo "deletion is success"
 fi
