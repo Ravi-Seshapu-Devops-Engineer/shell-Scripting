@@ -32,6 +32,6 @@ validate(){
 
 for package in $@  # sudo sh 13.loops.sh nginx nodejshtml( passing the aruments wile running the script)
 do 
-  dnf install $package -y 
+  dnf install $package -y &>> $LOGS_FILE
   validate $? "installing $package"
 done
