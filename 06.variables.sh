@@ -10,3 +10,4 @@ echo "PID odf the script $$"
 sleep 100 &
 echo "PID of the recently executed background process $!"
 echo "all arguments passed to the script $*"
+echo "exit status of the previous code is $?"
