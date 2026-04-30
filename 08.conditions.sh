@@ -9,7 +9,7 @@ Number=$1
 
 if [ $Number -gt 20 ]; then
     echo "Given number $Number is greater than 20"
-elif
+elif [ $Number -eq 20 ]; then
     echo "Given number $Number is equal to 20"
 else
     echo "Given number is $Number is less than 20"
