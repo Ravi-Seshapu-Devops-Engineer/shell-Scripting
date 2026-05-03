@@ -1,6 +1,6 @@
 #!/bin/bash
 
-Country=China
+Country=#China
 
 echo "I'm in $Country"
 echo "PID is $$"
