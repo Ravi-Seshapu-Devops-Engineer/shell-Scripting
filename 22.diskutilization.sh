@@ -14,16 +14,16 @@ log(){
 Disk_Usage=$(df -hT|grep -v Filesystem)
 Usage_Threshold=3
 
-while IFS=read -r line
+while IFS= read -r line
   do
-    usage=$(df -hT |grep -v Filesystem | awk '{print $6}' | cut -d % -f1)
-    partition=$(df -hT |grep -v Filesystem | awk '{print $7}')
+    usage=$($line | awk '{print $6}' | cut -d % -f1)
+    partition=$($line | awk '{print $7}')
 
     if [ "$usage" -gt "$Usage_Threshold" ]; then
       MESSAGE+="High disk usage on $partition:$usage"
     fi
 
-  done <<< $Disk_Usage
+  done <<< "$Disk_Usage"
 
 echo "$MESSAGE"
 
