@@ -6,7 +6,7 @@ Y="\e[33m"
 N="\e[0m"
 SOURCE_DIR=$1
 DEST_DIR=$2
-DAYS=${3: -14}
+DAYS=${3:-14}
 LOGS_FOLDER="/var/log/shell-Scripting/"
 LOGS_FILE="/var/log/shell-Scripting/backup.log"
 
