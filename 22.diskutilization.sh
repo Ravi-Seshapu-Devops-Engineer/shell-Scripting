@@ -28,6 +28,6 @@ while IFS= read -r line
 
 echo -e "$MESSAGE"
 
-sh mail.sh "ravishankarfrom1998@gmail.com" "High disk usage alert on $IP_ADDRESS" "$MESSAGE" "High disk usage alert" "$IP_ADDRESS" "TO DEVOPS TEAM"
+sh 23.mail.sh "ravishankarfrom1998@gmail.com" "High disk usage alert on $IP_ADDRESS" "$MESSAGE" "High disk usage alert" "$IP_ADDRESS" "TO DEVOPS TEAM"
 
 
