@@ -69,6 +69,6 @@ if [ -f $ZIP_FILE_NAME ]; then
   while IFS= read -r filepath; do
     echo "deleting the $filepath"
     rm -f $filepath
-    echo "deleting the file $filepath"
+    echo "deleting the file ("$filepath")"
   done <<< $FILES
 fi
