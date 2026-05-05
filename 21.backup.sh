@@ -50,7 +50,7 @@ log "Source directory: $SOURCE_DIR"
 log "Dest dir :$DEST_DIR"
 log "Days: $DAYS"
 
-if [ -z FILES ]: then
+if [ -z FILES ]; then
   log "no files to archive   skipping"
 else
   # app-logs-$timestamp.zip
