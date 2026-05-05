@@ -5,7 +5,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-LOGS_FOLDER="/var/lo/shell-Scripting/"
+LOGS_FOLDER="/var/log/shell-Scripting/"
 LOGS_FILE="/var/log/shell-Scripting/backup.log"
 
 
