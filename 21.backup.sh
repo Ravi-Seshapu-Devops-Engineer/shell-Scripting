@@ -5,8 +5,8 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-LOGS_FOLDER="/var/lo/shell-Script/"
-LOGS_FILE="/var/log/shell-Script/backup.log"
+LOGS_FOLDER="/var/lo/shell-Scripting/"
+LOGS_FILE="/var/log/shell-Scripting/backup.log"
 
 
 if [ ! -d $LOGS_FOLDER ]; then
