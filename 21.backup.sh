@@ -25,7 +25,7 @@ usage(){
 }
 
 log(){
-  echo -e "$(date "+%Y-%m-%d %H:%M:%S") | $1" | tee -a $LOGS_FILE
+  echo -e "$(date "+%Y-%m-%d-%H-%M-%S") | $1" | tee -a $LOGS_FILE
 }
 
 if [ $# -lt 2 ]; then
@@ -43,7 +43,7 @@ if [ ! -d "$DEST_DIR" ]; then
 fi
 
 #find the files
-FILES=$(find "$SOURCE_DIR" -name "*.log" -type f -mtime "$DAYS")
+FILES=$(find "$SOURCE_DIR" -name "*.log" -type f -mtime +"$DAYS")
 
 log "BACKUP started"
 log "Source directory: $SOURCE_DIR"
@@ -55,7 +55,7 @@ if [ -z "${FILES}" ]; then
 else
   # app-logs-$timestamp.zip
   log "files found to archie $FILES"
-  TIMESTAMP=$(date +%F %H %M %S)
+  TIMESTAMP=$(date +%F-%H-%M-%S)
   ZIP_FILE_NAME="$DEST_DIR/app_logs-$TIMESTAMP.tar.gz"
   log "Archive name: $ZIP_FILE_NAME"
   tar -zcvf "$ZIP_FILE_NAME" "$(find "$SOURCE_DIR" -name "*.log" -type f -mtime +"$DAYS")"
