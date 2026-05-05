@@ -33,12 +33,12 @@ if [ $# -lt 2 ]; then
 fi
 
 if [ ! -d $SOURCE_DIR ]; then
-  echo "$R Source directory $SOURCE_DIR $N does not exist"
+  log "$R Source directory $SOURCE_DIR $N does not exist"
   exit 1
 fi
 
 if [ ! -d $DEST_DIR ]; then
-  echo "$R Destination directory $DEST_DIR $N does not exist"
+  log "$R Destination directory $DEST_DIR $N does not exist"
   exit 1
 fi
 
@@ -49,3 +49,26 @@ log "BACKUP started"
 log "Source directory: $SOURCE_DIR"
 log "Dest dir :$DEST_DIR"
 log "Days: $DAYS"
+
+if [ -z FILES ]: then
+  log "no files to archive   skipping"
+else
+  # app-logs-$timestamp.zip
+  log "files found to archie $FILES"
+  TIMESTAMP=$(date +%F %H %M %S)
+  ZIP_FILE_NAME="$DEST_DIR/app_logs-$TIMESTAMP.tar.gz
+  log "Archive name: $ZIP_FILE_NAME"
+  tar -zcvf $ZIP_FILE_NAME $(find $SOURCE_DIR -name "*.log" -type f -mtime $DAYS)
+
+fi
+
+#Check if archive is success or not
+if [ -f $ZIP_FILE_NAME ]; then
+  log "Archival is success"
+
+  while IFS= read -r filepath; do
+    echo "deleting the $filepath"
+    rm -f $filepath
+    echo "deleting the file $filepath"
+  done <<< $FILES
+fi
