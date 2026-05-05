@@ -64,11 +64,13 @@ else
   #Check if archive is success or not
   if [ -f $ZIP_FILE_NAME ]; then
     log "Archival is success"
-
-    while IFS= read -r filepath; do
-      echo "deleting the $filepath"
-      rm -f $filepath
-      echo "deleted file $filepath "
+    
+    while IFS= read -r filepath; 
+    do
+    echo "deleting the $filepath"
+    rm -f $filepath
+    echo "deleting the file $filepath""
     done <<< $FILES
-    fi
+  fi
+
 fi
