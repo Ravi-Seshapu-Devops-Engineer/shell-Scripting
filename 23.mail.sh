@@ -1,3 +1,5 @@
+#!/bin/bash
+
 TO_ADDRESS=$1
 SUBJECT=$2
 MESSAGE_BODY=$3
