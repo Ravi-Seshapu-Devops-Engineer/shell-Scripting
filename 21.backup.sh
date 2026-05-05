@@ -47,4 +47,4 @@ FILES=$(find $SOURCE_DIR -name "*.log" -type f -mtime $DAYS)
 log "BACKUP started"
 log "Source directory: $SOURCE_DIR"
 log "Dest dir :$DEST_DIR"
-log "Days: $DAYS
+log "Days: $DAYS"
