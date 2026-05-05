@@ -32,7 +32,7 @@ validate(){
 
 for package in $@  # sudo sh 13.loops.sh nginx nodejshtml( passing the aruments wile running the script)
 do
-  dnf list installed $package &>> LOGS_FILE
+  dnf list installed $package &>> $LOGS_FILE
   if [ $? -ne 0 ]; then
     echo "$package is not installed, installing now"
     dnf install $package -y &>> $LOGS_FILE

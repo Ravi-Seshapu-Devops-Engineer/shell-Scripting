@@ -20,7 +20,7 @@ validate(){
   fi
 }
 
-
+ 
 dnf install nginx -y &>> $LOGS_FILE
 validate $? "installing nginx"
 

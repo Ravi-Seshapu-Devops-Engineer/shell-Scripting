@@ -5,7 +5,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-LOGS_FOLDER=/home/ec2-user/app-logs
+LOGS_FOLDER=/home/ec2-user/app_logs
 LOGS_FILE=$LOGS_FOLDER/$0.log
 
 if [ ! -d $LOGS_FOLDER ]; then
