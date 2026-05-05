@@ -69,7 +69,7 @@ else
     do
     echo "deleting the $filepath"
     rm -f $filepath
-    echo "deleting the file $filepath""
+    echo "$filepath deleted"
     done <<< $FILES
   fi
 
