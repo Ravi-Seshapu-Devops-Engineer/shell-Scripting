@@ -67,7 +67,6 @@ else
     
     while IFS= read -r filepath; 
     do
-    echo "deleting the $filepath"
     rm -f $filepath
     done <<< $FILES
   fi
