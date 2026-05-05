@@ -32,44 +32,44 @@ if [ $# -lt 2 ]; then
   usage
 fi
 
-if [ ! -d $SOURCE_DIR ]; then
+if [ ! -d "$SOURCE_DIR" ]; then
   log "$R Source directory $SOURCE_DIR $N does not exist"
   exit 1
 fi
 
-if [ ! -d $DEST_DIR ]; then
+if [ ! -d "$DEST_DIR" ]; then
   log "$R Destination directory $DEST_DIR $N does not exist"
   exit 1
 fi
 
 #find the files
-FILES=$(find $SOURCE_DIR -name "*.log" -type f -mtime $DAYS)
+FILES=$(find "$SOURCE_DIR" -name "*.log" -type f -mtime "$DAYS")
 
 log "BACKUP started"
 log "Source directory: $SOURCE_DIR"
 log "Dest dir :$DEST_DIR"
 log "Days: $DAYS"
 
-if [ -z FILES ]; then
+if [ -z "${FILES}" ]; then
   log "no files to archive   skipping"
 else
   # app-logs-$timestamp.zip
   log "files found to archie $FILES"
   TIMESTAMP=$(date +%F %H %M %S)
-  ZIP_FILE_NAME="$DEST_DIR/app_logs-$TIMESTAMP.tar.gz
+  ZIP_FILE_NAME="$DEST_DIR/app_logs-$TIMESTAMP.tar.gz"
   log "Archive name: $ZIP_FILE_NAME"
-  tar -zcvf $ZIP_FILE_NAME $(find $SOURCE_DIR -name "*.log" -type f -mtime $DAYS)
+  tar -zcvf "$ZIP_FILE_NAME" "$(find "$SOURCE_DIR" -name "*.log" -type f -mtime +"$DAYS")"
   
   
-  if [ -f $ZIP_FILE_NAME ]; then
+  if [ -f "$ZIP_FILE_NAME" ]; then
         log "Archeival is ... $G SUCCESS $N"
 
         while IFS= read -r filepath; do
         # Process each line here
         log "Deleting file: $filepath"
-        rm -f $filepath
+        rm -f "$filepath"
         log "Deleted file: $filepath"
-        done <<< $FILES
+        done <<< "$FILES"
     else
         log "Archeival is ... $R FAILURE $N"
         exit 1
